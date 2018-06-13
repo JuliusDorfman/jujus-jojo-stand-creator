@@ -1,0 +1,19 @@
+.extra-temp-space {
+  height: 4000px;
+}
+
+.homepage-component {
+  background: whitesmoke;
+  margin: 5%;
+  height: 100vh;
+}
+
+.stand-creator-wrapper {
+  display: flex;
+  flex: auto;
+}
+
+.homepage-headline {
+  font-size: 45px;
+}
+

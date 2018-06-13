@@ -1,0 +1,21 @@
+.site-nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-left: auto;
+  padding-right: auto;
+  background-color: white;
+  border-bottom: 1px solid black;
+}
+
+.nav-link {
+  display: block;
+  float: left;
+  padding: 0 25px;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: rgb(201, 60, 201);
+}
