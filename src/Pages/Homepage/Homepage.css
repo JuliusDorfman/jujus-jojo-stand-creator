@@ -1,19 +1,33 @@
-.extra-temp-space {
-  height: 4000px;
-}
-
 .homepage-component {
-  background: whitesmoke;
-  margin: 5%;
-  height: 100vh;
+  background: rgba(225, 225, 225, .8);
+  min-height: calc(100vh - 150px);
 }
 
-.stand-creator-wrapper {
+.stand-generator {
   display: flex;
   flex: auto;
+  height: 100%;
 }
 
 .homepage-headline {
+  margin-left: 12px;
+  text-align: left;
   font-size: 45px;
 }
 
+.stand-image-wrapper {
+  width: 100%;
+}
+
+@media (max-width: 640px){
+  .homepage-headline{
+    font-size: 30px;
+  }
+}
+
+/* Custom */
+/* .overlay-softener {
+  width: 100%;
+  height: 100%;
+  background: rgba(225, 225, 225, .8);
+} */

@@ -1,13 +1,23 @@
 .site-nav {
   display: block;
   position: fixed;
+  z-index: 10;
   top: 0;
   width: 100%;
-  padding-left: auto;
-  padding-right: auto;
-  background-color: white;
   border-bottom: 1px solid black;
 }
+/* 
+.site-nav::after {
+  content:"";
+  display: block;
+  z-index: -1;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(150, 150, 150, .5);
+} */
 
 .nav-link {
   display: block;
