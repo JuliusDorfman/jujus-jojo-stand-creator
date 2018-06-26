@@ -6,26 +6,29 @@
   width: 100%;
   border-bottom: 1px solid black;
 }
-/* 
-.site-nav::after {
-  content:"";
-  display: block;
-  z-index: -1;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(150, 150, 150, .5);
-} */
 
-.nav-link {
+.nav-item {
   display: block;
   float: left;
-  padding: 0 25px;
+  padding-left: 50px;
 }
 
-.nav-link a {
+.nav-item a {
   text-decoration: none;
   color: rgb(201, 60, 201);
+}
+
+.nav-list-items {
+  position: absolute;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.nav-list-items>li {
+  padding: 20px 0 0 0;
+  text-align: left;
+  background: rgba(255, 255, 255, .85);
+  border: 1px solid black;
+  color: black;
 }

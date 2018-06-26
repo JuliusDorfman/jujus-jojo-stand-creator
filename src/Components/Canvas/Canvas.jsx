@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Konva from 'konva';
-import { Stage, Layer, Rect, Transformer } from "react-konva";
+// import { Stage, Layer, Rect, Transformer } from "react-konva";
 import "./Canvas.css";
 
 export default class Canvas extends Component {
@@ -22,17 +22,15 @@ export default class Canvas extends Component {
         'cast_bg.png',
         'jolyne_bg.jpg'
       ],
-      backgroundNum: 0,
-      canvasHeight: `80vh`,
-      canvasWidth: `80vw`
+      backgroundNum: 0
     };
   }
 
   componentDidMount() {
     var stage = new Konva.Stage({
       container: 'main-display',
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: window.innerWidth - 100,
+      height: window.innerHeight - 100,
       left: 0,
       position: "absolute"
     });
@@ -86,8 +84,8 @@ export default class Canvas extends Component {
       });
 
       var imageFive = new Konva.Image({
-        x: 1250,
-        y: 130,
+        x: 725,
+        y: 215,
         image: imageObjFive,
         width: 200,
         height: 275,
@@ -153,7 +151,6 @@ export default class Canvas extends Component {
     e.preventDefault()
     const canvasBackground = document.getElementById('canvas-background');
     const numOfBackgrounds = this.state.backgrounds.length;
-
     canvasBackground.style.background = `url(/assets/backgrounds/${this.state.backgrounds[this.state.backgroundNum]})`;
     canvasBackground.style.backgroundSize = 'cover';
     this.setState({ backgroundNum: this.state.backgroundNum + 1 });
@@ -163,9 +160,10 @@ export default class Canvas extends Component {
   }
 
   canvasStyle = {
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: window.innerWidth - 100,
+    height: window.innerHeight - 100,
     position: "absolute",
+    border: "1px solid black",
     left: 0
   }
 
@@ -175,9 +173,9 @@ export default class Canvas extends Component {
 
     return (
       <div className="canvas-component">
+        <button className="background-button" onClick={this.changeBackground.bind(this)} style={{ position: "absolute", top: "35px" }}>Change Background</button>
         <div id="canvas-background" style={this.canvasStyle} />
         <div id="main-display" />
-        <button onClick={this.changeBackground.bind(this)} style={{ position: "absolute" }}>Change Background</button>
       </div>
     )
   }
