@@ -35,6 +35,28 @@ export default class Canvas extends Component {
       position: "absolute"
     });
 
+    stage.on('click', function(e) {
+      // if click on empty area - remove all transformers
+      if (e.target === stage) {
+        stage.find('Transformer').destroy();
+        layer.draw();
+        return;
+      }
+      // do nothing if clicked NOT on our rectangles
+      if (!e.target.hasName('rect')) {
+        return;
+      }
+      // remove old transformers
+      // TODO: we can skip it if current rect is already selected
+      stage.find('Transformer').destroy();
+
+      // create new transformer
+      var tr = new Konva.Transformer();
+      layer.add(tr);
+      tr.attachTo(e.target);
+      layer.draw();
+    })
+
     // add canvas element
     var layer = new Konva.Layer();
     stage.add(layer);
@@ -53,7 +75,8 @@ export default class Canvas extends Component {
         image: imageObj,
         width: 100,
         height: 100,
-        draggable: true
+        draggable: true,
+        name: 'rect'
       });
 
       var imageTwo = new Konva.Image({
@@ -63,6 +86,7 @@ export default class Canvas extends Component {
         width: 200,
         height: 200,
         draggable: true,
+        name: 'rect'
       });
 
       var imageThree = new Konva.Image({
@@ -71,7 +95,8 @@ export default class Canvas extends Component {
         image: imageObjThree,
         width: 200,
         height: 275,
-        draggable: true
+        draggable: true,
+        name: 'rect'
       });
 
       var imageFour = new Konva.Image({
@@ -80,7 +105,9 @@ export default class Canvas extends Component {
         image: imageObjFour,
         width: 200,
         height: 275,
-        draggable: true
+        draggable: true,
+        name: 'rect'
+
       });
 
       var imageFive = new Konva.Image({
@@ -89,7 +116,8 @@ export default class Canvas extends Component {
         image: imageObjFive,
         width: 200,
         height: 275,
-        draggable: true
+        draggable: true,
+        name: 'rect'
       });
 
       layer.add(image)
@@ -148,7 +176,6 @@ export default class Canvas extends Component {
 
 
   changeBackground(e) {
-    e.preventDefault()
     const canvasBackground = document.getElementById('canvas-background');
     const numOfBackgrounds = this.state.backgrounds.length;
     canvasBackground.style.background = `url(/assets/backgrounds/${this.state.backgrounds[this.state.backgroundNum]})`;
